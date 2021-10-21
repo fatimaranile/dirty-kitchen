@@ -1,0 +1,30 @@
+<ion-header>
+  <ion-header>
+    <ion-toolbar>
+      <ion-buttons slot="start">
+        <ion-back-button defaultHref="home"></ion-back-button>
+        <ion-title>Add Entry {{dailyScrumUpdate.date}}</ion-title>
+      </ion-buttons>
+    </ion-toolbar>
+  </ion-header>
+</ion-header>
+
+<ion-content>
+  <ion-item>
+    <ion-label position="stacked">What did you do yesterday?</ion-label>
+    <ion-textarea [(ngModel)]="dailyScrumUpdate.didDo" autoGrow="true"></ion-textarea>
+  </ion-item>
+  <ion-item>
+    <ion-label position="stacked">What are your plans today?</ion-label>
+    <ion-textarea [(ngModel)]="dailyScrumUpdate.toDo" autoGrow="true"></ion-textarea>
+  </ion-item>
+  <ion-item>
+    <ion-label position="stacked">Blockers/Impediment</ion-label>
+    <ion-textarea [(ngModel)]="dailyScrumUpdate.blockers" autoGrow="true"></ion-textarea>
+  </ion-item>
+
+  <section>
+    <ion-button expand="block" (click)="submitUpdate()">Submit Update</ion-button>
+  </section>
+      
+</ion-content>
