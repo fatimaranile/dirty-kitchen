@@ -31,7 +31,7 @@ const Layout = ({ children, home }) => {
       <header className={styles.header}>
         {home ? (
           <>
-          {/* priority property preloaded the image */}
+            {/* priority property preloaded the image */}
             <Image
               priority
               src="/images/profile.png"
@@ -55,22 +55,22 @@ const Layout = ({ children, home }) => {
                   alt={name}
                 />
               </a>
-              <h2 className={utilStyles.headingLg}>
-                <Link href="/">
-                  <a classname={utilStyles.colorInherit}>{name}</a>
-                </Link>
-              </h2>
             </Link>
+            <h2 className={utilStyles.headingLg}>
+              <Link href="/">
+                <a classname={utilStyles.colorInherit}>{name}</a>
+              </Link>
+            </h2>
           </>
         )}
       </header>
       <main>{children}</main>
       {!home && (
-          <div className={styles.backToHome}>
-              <Link href="/">
-                  <a>← Back to home</a>
-              </Link>
-          </div>
+        <div className={styles.backToHome}>
+          <Link href="/">
+            <a>← Back to home</a>
+          </Link>
+        </div>
       )}
     </div>
   );

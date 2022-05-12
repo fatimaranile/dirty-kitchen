@@ -36,4 +36,32 @@ export const getSortedPostsData = () => {
       return 0;
     }
   });
-}
+};
+
+export const getAllPostsIds = () => {
+  // Get file names under /posts
+  const fileNames = fs.readdirSync(postsDirectory);
+
+  return fileNames.map((fileName) => {
+    return {
+      params: {
+        id: fileName.replace(/\.md$/, ""),
+      },
+    };
+  });
+};
+
+export const getPostData = (id) => {
+  // Read markdown file as string
+  const fullPath = path.join(postsDirectory, `${id}.md`);
+  const fileContents = fs.readFileSync(fullPath, "utf-8");
+
+  // Use gray-matter to parse the post metadata section
+  const matterResult = matter(fileContents);
+
+  // return combined data with id
+  return {
+    id,
+    ...matterResult.data,
+  };
+};
